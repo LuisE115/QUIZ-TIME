@@ -10,9 +10,35 @@
 <body>
     <header>
         <p>view high scores</p>
-        <p>Time: </p>
-        <p id="time">100</p>
+        <p>Time: <span id="time">--</span> </p>
     </header>
+
+    <section id="quiz">
+        <h1 id="quiz-h1">Coding Quiz Challenge</h1>
+        <p id="quiz-p">Try to answer the following code-realted questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+        <button type="button" id="start-quiz">Start Quiz</button>
+    </section>
+
+    <section id="question" class="question-area">
+        <div id="question-header">Commonly used data types DO Not Include:</div>
+        <div class="answer-container">
+            <p class="prefix">1.</p>
+            <P class="answers" data-number="1">Answer</P>
+        </div>
+        <div class="answer-container">
+            <p class="prefix">2.</p>
+            <P class="answers" data-number="2">Answer</P>
+        </div>
+        <div class="answer-container">
+            <p class="prefix">3.</p>
+            <P class="answers" data-number="3">Answer</P>
+        </div>
+        <div class="answer-container">
+            <p class="prefix">4.</p>
+            <P class="answers" data-number="4">Answer</P>
+        </div>
+    </section>
+
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

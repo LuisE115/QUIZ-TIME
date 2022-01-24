@@ -8,3 +8,9 @@ var countdown = function () {
     };
 };
 var startCountdown = setInterval(countdown, 1000);
+
+document.getElementById("start-quiz").addEventListener("click", hidestart);
+
+function hidestart() {
+    document.getElementById("quiz").style.display="none";
+}
