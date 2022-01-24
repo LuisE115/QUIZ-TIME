@@ -7,7 +7,7 @@ let acceptingAnswers = true;
 let counter = 75;
 let questionCounter = 0;
 let availableQuestions = [];
-
+let input = "";
 let questions = [
     {
         question: "Commonly used data types DO Not Include:",
@@ -60,8 +60,14 @@ function startQuiz() {
 }
 
 function getNewQuestion() {
+    if(availableQuestions.length === 0 || questionCounter > 5 || counter === 0) {
+        var score = counter;
+        document.getElementById("score").innerHTML = score;
+        clearInterval(countdown);
+        return endQuiz(score);
+    }
+
     questionCounter = 0;
-    counter = 75;
     questionCounter++;
         
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -103,16 +109,39 @@ choices.forEach(choice => {
 var countdown = function () {
     counter--;
     document.getElementById("time").innerHTML = counter;
-    if (counter === 0) {
-        clearInterval(startCountdown);
-    };
+    
 };
-var startCountdown = setInterval(countdown, 1000);
 
 document.getElementById("start-quiz").addEventListener("click", start);
 
+
 function start() {
+    counter = 75;
+    setInterval(countdown, 1000);
     document.getElementById("quiz").style.display="none";
     document.getElementById("question").style.display="block";
     startQuiz();
+}
+
+
+function endQuiz() {
+    document.getElementById("question").style.display="none";
+    document.getElementById("end").style.display="block";
+}
+
+document.getElementById("sub").addEventListener("click", hub);
+
+function hub() {
+    input = document.getElementById("name");
+    document.getElementById("quiz").style.display="block";
+    document.getElementById("question").style.display="none";
+    document.getElementById("end").style.display="none";
+    
+}
+
+function saveScore(score, input) {
+    const userScore = {
+        score: score,
+        name: input
+    };
 }
