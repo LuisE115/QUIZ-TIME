@@ -9,17 +9,18 @@
 </head>
 
 <body>
+    <!-- Header with high scores and timer -->
     <header>
         <p id="hs">view high scores</p>
         <p>Time: <span id="time">--</span> </p>
     </header>
-
+    <!-- Introduction to the quiz and start button -->
     <section id="quiz" class="question-area">
         <h1 id="quiz-h1">Coding Quiz Challenge</h1>
         <p id="quiz-p">Try to answer the following code-realted questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
         <button type="button" id="start-quiz">Start Quiz</button>
     </section>
-
+    <!-- Area where question are displayed with buttons -->
     <section id="question" class="question-area">
         <div id="question-header">Question:</div>
         <div class="answers-container">
@@ -41,7 +42,7 @@
         </div>
         </div>
     </section>
-
+    <!-- Results to submit with initials -->
     <section id="end">
        <h1>All done!</h1>
        <p> Your final score is <span id="score">0</span>.</p>
@@ -50,8 +51,6 @@
             <input type="text" id="name" name="name">
             <input type="submit" value="Submit" id="sub">
        </div>
-       
-
     </section>
 
     <script src="./assets/js/script.js"></script>

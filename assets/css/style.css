@@ -1,3 +1,4 @@
+/* global style */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,7 +6,7 @@
     font-family:Arial, Helvetica, sans-serif;
     font-size: 3vh;
 }
-
+/* style for header */
 header {
     display: flex;
     justify-content: space-between;
@@ -15,17 +16,17 @@ header {
 #hs {
     color: violet;
 }
-
+/* style where the question are displayed */
 .question-area {
     margin: 10px 30%;
     text-align: left;
 }
-
+/* style for headers */
 #quiz-h1, #question-header, #end h1 {
     font-weight: bold;
     font-size: 4vh;
 }
-
+/* style for submit buttons */
 #start-quiz, #sub {
     background-color: rgb(104, 23, 197);
     border-radius: 8px;
@@ -36,7 +37,7 @@ header {
 .answers-container { 
     position: absolute;
 }
-
+/* style for answers buttons */
 .answer-container {
     display: flex;
     background-color: rgb(104, 23, 197);
