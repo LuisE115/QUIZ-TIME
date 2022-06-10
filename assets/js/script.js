@@ -9,6 +9,8 @@ let counter = 75;
 let questionCounter = 0;
 let availableQuestions = [];
 let input = "";
+
+let timer;
 // array with questions objects to display each question
 let questions = [
     {
@@ -52,8 +54,8 @@ let questions = [
         answer: 4,
     }
 ];
-// const for max amount of questions
-const MAX_QUESTIONS = 5;
+
+
 // function to set question counter to 0 and call getNewQuestion function
 function startQuiz() {
     questionCounter = 0;
@@ -66,9 +68,9 @@ function getNewQuestion() {
     if(availableQuestions.length === 0 || questionCounter > 5 || counter === 0) {
         var score = counter;
         document.getElementById("score").innerHTML = score;
-        clearInterval(countdown);
+        // clearInterval(countdown);
         // if no more question or time left return score value to endQuiz function
-        return endQuiz(score);
+        endQuiz();
     }
 
     questionCounter = 0;
@@ -86,13 +88,10 @@ function getNewQuestion() {
     })
     // display different objects from the array
     availableQuestions.splice(questionIndex, 1);
-
-    acceptingAnswers = true;
 }
 // add eventlistener for each choice selected and check if the answer selected is the correct one
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
-        acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
         // if selected answer is incorrect substract 10 from the timer
@@ -111,7 +110,7 @@ choices.forEach(choice => {
 })
 
 // change the time value for the counter in order to display the time left
-var countdown = function () {
+function countdown() {
     counter--;
     document.getElementById("time").innerHTML = counter;
     
@@ -122,7 +121,7 @@ document.getElementById("start-quiz").addEventListener("click", start);
 // hide quiz section and display question section to start the quiz
 function start() {
     counter = 75;
-    setInterval(countdown, 1000);
+    timer = setInterval(countdown, 1000);
     document.getElementById("quiz").style.display="none";
     document.getElementById("question").style.display="block";
     startQuiz();
@@ -130,8 +129,10 @@ function start() {
 
 // hide questions section and display the results section 
 function endQuiz() {
+    clearInterval(timer);
     document.getElementById("question").style.display="none";
     document.getElementById("end").style.display="block";
+    // document.getElementById("time").style.display="none";
 }
 // listen to the submit button to return to quiz section
 document.getElementById("sub").addEventListener("click", hub);
